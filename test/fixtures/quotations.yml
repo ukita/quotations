@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+usd:
+  currency: usd
+  buy: 3.1561
+  sell: 3.1554
+  variation: 0.38
+
+eur:
+  currency: eur
+  buy: 3.6818
+  sell: 3.6812
+  variation: -0.09

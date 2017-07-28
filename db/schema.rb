@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170728005223) do
+ActiveRecord::Schema.define(version: 20170728011751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,4 +23,15 @@ ActiveRecord::Schema.define(version: 20170728005223) do
     t.index ["code"], name: "index_currencies_on_code", unique: true
   end
 
+  create_table "quotations", force: :cascade do |t|
+    t.bigint "currency_id"
+    t.float "buy", null: false
+    t.float "sell", null: false
+    t.float "variation", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["currency_id"], name: "index_quotations_on_currency_id"
+  end
+
+  add_foreign_key "quotations", "currencies"
 end
