@@ -31,4 +31,44 @@ class QuotationTest < ActiveSupport::TestCase
     currency = build_quotation(variation: nil)
     assert_not currency.save
   end
+
+  test 'should fetch quotations from today' do
+    quotations = Quotation.from_today
+    quotations.each do |quotation|
+      assert quotation.created_at.to_date == Date.today
+    end
+  end
+
+  test 'should fetch quotations from yesterday' do
+    quotations = Quotation.from_yesterday
+    quotations.each do |quotation|
+      assert quotation.created_at.to_date == Date.yesterday
+    end
+  end
+
+  test 'should fetch quotations from last week' do
+    quotations = Quotation.from_last_week
+    quotations.each do |quotation|
+      assert last_week.cover?(quotation.created_at)
+    end
+  end
+
+  test 'should fetch quotations from last month' do
+    quotations = Quotation.from_last_month
+    quotations.each do |quotation|
+      assert last_month.cover?(quotation.created_at)
+    end
+  end
+
+  private
+
+  def last_week
+    last_week = Date.today.last_week
+    last_week...last_week.end_of_week
+  end
+
+  def last_month
+    last_month = Date.today.last_month.beginning_of_month
+    last_month...last_month.end_of_month
+  end
 end
