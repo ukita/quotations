@@ -1,8 +1,8 @@
 class Quotation < ApplicationRecord
   belongs_to :currency
 
-  scope :from_today, -> { where(created_at: Date.today.all_day) }
-  scope :from_yesterday, -> { where(created_at: Date.yesterday.all_day) }
+  scope :from_today, -> { where(created_at: Date.current) }
+  scope :from_yesterday, -> { where(created_at: 1.day.ago) }
 
   def self.from_last_week
     last_week = Date.today.last_week

@@ -35,14 +35,14 @@ class QuotationTest < ActiveSupport::TestCase
   test 'should fetch quotations from today' do
     quotations = Quotation.from_today
     quotations.each do |quotation|
-      assert quotation.created_at.to_date == Date.today
+      assert_equal quotation.created_at.to_date, Date.current
     end
   end
 
   test 'should fetch quotations from yesterday' do
     quotations = Quotation.from_yesterday
     quotations.each do |quotation|
-      assert quotation.created_at.to_date == Date.yesterday
+      assert_equal quotation.created_at.to_date, 1.day.ago.to_date
     end
   end
 

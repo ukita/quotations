@@ -17,18 +17,18 @@ usd-2:
   buy: 3.1558
   sell: 3.1552
   variation: 0.30
-  created_at: <%= Date.yesterday %>
+  created_at: <%= 1.day.ago %>
 
 eur-2:
   currency: eur
   buy: 3.6820
   sell: 3.6810
   variation: -0.01
-  created_at: <%= Date.today.last_week %>
+  created_at: <%= Date.current.last_week %>
 
 usd-3:
   currency: usd
   buy: 3.1558
   sell: 3.1552
   variation: 0.30
-  created_at: <%= Date.today.last_month %>
+  created_at: <%= Date.current.last_month %>
