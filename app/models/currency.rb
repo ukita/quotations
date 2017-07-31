@@ -1,4 +1,6 @@
 class Currency < ApplicationRecord
+  has_many :quotations
+
   enum code: { usd: 'Dollar', eur: 'Euro', btc: 'Bitcoin' }
 
   validates :code, inclusion: { in: codes.keys }
