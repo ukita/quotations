@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+[
+  { code: :btc },
+  { code: :usd },
+  { code: :eur }
+].each do |currency|
+  Currency.create(currency)
+end
