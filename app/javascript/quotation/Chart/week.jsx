@@ -46,7 +46,7 @@ class Week extends Component {
               <Line type="monotone" dataKey="variation" stroke="#8e44ad" />
               <Tooltip />
               <XAxis interval={0} dataKey="created_at"/>
-              <YAxis/>
+              <YAxis padding={{bottom: 45}}/>
             </LineChart>
           </ResponsiveContainer>
           }
