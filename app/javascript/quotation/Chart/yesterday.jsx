@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts'
+import {LineChart, Line, XAxis, YAxis, ResponsiveContainer, Tooltip} from 'recharts'
 import moment from 'moment'
 
 class Yesterday extends Component {
@@ -46,14 +46,20 @@ class Yesterday extends Component {
     const {quotations} = this.state 
 
     return (
-      <div>
-        <p>Quotations from yesterday</p>
-        {quotations && <LineChart width={1200} height={400} data={this.prepareQuotations(quotations)}>
-          <Line type="monotone" dataKey="variation" stroke="#66ddd8" />
-          <Tooltip />
-          <XAxis interval={0} dataKey="created_at"/>
-          <YAxis/>
-        </LineChart>}
+      <div className="panel panel-default">
+        <div className="panel-heading">Quotations from yesterday</div>
+        <div className="panel-body">
+          {quotations && 
+          <ResponsiveContainer width="100%" height={500}>
+            <LineChart data={this.prepareQuotations(quotations)}>
+              <Line type="monotone" dataKey="variation" stroke="#e74c3c" />
+              <Tooltip />
+              <XAxis interval={0} dataKey="created_at"/>
+              <YAxis/>
+            </LineChart>
+          </ResponsiveContainer>
+          }
+        </div>
       </div>
     )
   }

@@ -10,7 +10,7 @@ class Header extends Component {
     const {currencies, selectedCurrency, handleCurrencyChange} = this.props
 
     return (
-      <select onChange={(event) => handleCurrencyChange(event.target.value)}>
+      <select className="select-currency" onChange={(event) => handleCurrencyChange(event.target.value)}>
         {currencies.map((currency) => {
           return <option 
                   key={currency.id} 
@@ -24,7 +24,11 @@ class Header extends Component {
   }
 
   render() {
-    return <h1>Should i buy {this.mountCurrencySelect()}</h1>
+    return (
+      <div className="header">
+        <h1>Should i buy {this.mountCurrencySelect()}?</h1>
+      </div>
+    )
   }
 }
 

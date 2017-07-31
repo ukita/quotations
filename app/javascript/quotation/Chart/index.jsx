@@ -9,10 +9,9 @@ class Chart extends Component {
 
     return (
       <div>
-        <h1>Quotations from {currency.name}</h1>
-        <Yesterday currency={currency}/>  
-        <Month currency={currency} />  
-        <Week currency={currency} />  
+        <Yesterday currency={currency}/>
+        <Week currency={currency} />
+        <Month currency={currency} />
       </div>
     )
   }
