@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-usd:
-  name: Dollar
-  code: USD
-
-EUR:
-  name: Euro
-  code: EUR
