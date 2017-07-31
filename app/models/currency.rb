@@ -3,6 +3,12 @@ class Currency < ApplicationRecord
 
   validates :code, inclusion: { in: codes.keys }
 
+  # Returns name of the currency
+  #
+  # ==== Examples
+  #
+  #  currency = Currency.create(code: :usd)
+  #  currency.name # => 'Dollar'
   def name
     Currency.codes[code]
   end
