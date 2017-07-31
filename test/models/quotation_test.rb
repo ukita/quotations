@@ -60,6 +60,15 @@ class QuotationTest < ActiveSupport::TestCase
     end
   end
 
+  test 'should group quotations by day' do
+    quotations = Quotation.limit(5).group_by(&:group_by_day)
+    quotations.each do |k,_|
+      assert_nothing_raised do
+        Date.parse(k)
+      end
+    end
+  end
+
   private
 
   def last_week

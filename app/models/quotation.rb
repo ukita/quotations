@@ -17,4 +17,8 @@ class Quotation < ApplicationRecord
   validates :buy, presence: true
   validates :sell, presence: true
   validates :variation, presence: true
+
+  def group_by_day
+    created_at.to_date.to_s(:db)
+  end
 end
