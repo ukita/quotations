@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import Yesterday from './yesterday'
+import Month from './month'
+import Week from './week'
 
 class Chart extends Component {
   render() {
@@ -7,8 +9,10 @@ class Chart extends Component {
 
     return (
       <div>
-        <h1>Here should have the quotations from {currency.name}</h1>
-        <Yesterday currency={currency}/>
+        <h1>Quotations from {currency.name}</h1>
+        <Yesterday currency={currency}/>  
+        <Month currency={currency} />  
+        <Week currency={currency} />  
       </div>
     )
   }
