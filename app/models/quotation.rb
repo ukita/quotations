@@ -1,18 +1,11 @@
 class Quotation < ApplicationRecord
   belongs_to :currency
 
-  scope :from_today, -> { where('date(created_at) = ?', Date.current) }
-  scope :from_yesterday, -> { where('date(created_at) = ?', 1.day.ago.to_date) }
-
-  def self.from_last_week
-    last_week = Date.today.last_week
-    where(created_at: last_week...last_week.end_of_week)
-  end
-
-  def self.from_last_month
-    last_month = Date.today.last_month.beginning_of_month
-    where(created_at: last_month...last_month.end_of_month)
-  end
+  scope :create_between, -> range { where(created_at: range) }
+  scope :from_today, -> { create_between(Date.current.all_day) }
+  scope :from_yesterday, -> { create_between(1.day.ago.all_day) }
+  scope :from_last_week, -> { create_between(Date.current.last_week.all_week) }
+  scope :from_last_month, -> { create_between(Date.current.last_month.all_month) }
 
   validates :buy, presence: true
   validates :sell, presence: true

@@ -72,12 +72,10 @@ class QuotationTest < ActiveSupport::TestCase
   private
 
   def last_week
-    last_week = Date.today.last_week
-    last_week...last_week.end_of_week
+    Date.current.last_week.all_week
   end
 
   def last_month
-    last_month = Date.today.last_month.beginning_of_month
-    last_month...last_month.end_of_month
+    Date.current.last_month.all_month
   end
 end
